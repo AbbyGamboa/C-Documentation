@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>C# Documentation</header>
+        <a href="#Introduction" class="nav-link" style="text-decoration: none;">Introduction</a>
+        <a href="#Hello_C#" class="nav-link" style="text-decoration: none;">Hello C#</a>
+        <a href="#The_Basics" class="nav-link" style="text-decoration: none;">The Basics</a>
+        <a href="#Object_Oriented_Programming" class="nav-link" style="text-decoration: none;">Object Oriented Programming</a>
+        <a href="#Garbage_Collection" class="nav-link" style="text-decoration: none;">Garbage Collection</a>
+        <a href="#Exception_Handling" class="nav-link" style="text-decoration: none;">Exception Handling</a>
+        <a href="#Threads" class="nav-link" style="text-decoration: none;">Threads</a>
+        <a href="#Generics" class="nav-link" style="text-decoration: none;">Generics</a>
+    </nav>
+
+    <main id="main-doc">
+       
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p>In the late 1990s and early 2000s the Java programming language gained popularity due to a rising development: the Internet. Java’s ability to run on multiple devices and systems gave way to its global use. To combat the rising popularity of Java, Microsoft developed Cool, later changed to C# for trademark issues. C-like object oriented language drew inspiration from Java and C++ while also incorporating object-oriented programming, libraries/component-oriented programming, garbage collection, and language interpolation.</p>
+            <p>Also during the early 2000s, Microsoft had an additional development in the works; the .Net framework. The .Net framework was built to assist programmers to make, maintain and run applications on Windows. Essentially the .Net framework allows programmers to create software easily through its large toolbox. Many languages are allowed to use the .Net framework but C# was made to be the primary language used in partnership with the .Net framework. C#’s garbage collection and exception handling, two concepts we will go more in depth on later in the chapter, incorporate the services of the .Net framework.</p>
+            <p>Although inspired by Java, there are key differences in both usage and design. One difference we will go over is the use of Generics in either language. We understand how generics are used in Java, for type safety and reuse just as the generics in C# but we will go over what differs in the design of such generics. </p>
+        </section>
+
+        <section class="main-section" id="Hello_C#"> 
+            <header>Hello C#</header>
+            <p>Let us start with our test script:</p>
+            
+            <code></code>
+            
+            <p>Does this look similar? The syntax similarities between C# and  Java should be evident. For starters, the entirety of the script is inside a class. To further indicate the similarities among the two languages as well as express how both are object oriented languages, I have taken the liberty to name the two classes the exact same thing. Going further into our example, there is a main method but unlike Java and other object oriented languages, our current script has main spelled with a capital M. The command line arguments are still inside a string array however the string type is not capitalized like that of Java’s String[]. One would assume this indicates string is a value type (similar to primitives) but that assumption is false.</p>
+            
+            <p>Let us take a dive into the actual code. At the top notice there is a single line stating using System, if this code was omitted from the script, we would have to adjust the print statement to read System.Console.WriteLine(). Although only shortening the statement by 7 characters, this declaration at the beginning is useful for further System functions that could run quite long. The using directive can be used to essentially import types. Like other languages, C# uses var to declare variables with an implicit type. </p>
+
+            <code></code>
+
+            <p>Notice how there is no build in swap method in C#, if we want to manipulate elements of a list we must establish a method of our own. Type annotation is required for parameters and return types so each of our methods has their parameters’ types explicitly identified. Instead of a long list of libraries we only have two imported from the .Net class of library. One of which we previously discussed but the other is System.Collections.Generic. This library allows us to use collections such as List, ArrayList, Stack and much more. However, the collections can only take in Generics. If we wanted to use a non-generic collection we would merely put System.Collections.
+            </p>
+        </section>
+
+        <section class="main-section" id="The_Basics"> 
+            <header>The Basics</header>
+            <p>Similarly to the other languages we have gone over, C# has two major types. The first of the two is value types which directly store the variables data on the memory stack. There is a number of  value types, also known as simple types, including the typical built in types of int, long, short, bool, double,char and float but have additional types of: 	</p>
+            <ul>
+                <li>Byte: 8-bit unsigned integer</li>
+                <li>Sbyte: 8-bit signed integer</li>
+                <li>Ushort: 16-bit unsigned integer</li>
+                <li>Uint: 32-bit unsigned integer</li>
+                <li>Ulong: 64-bit unsigned integer</li>
+                <li>Decimal: 128-bit precise decimal type</li>
+                <li>Struct: Contains fields, methods and fields</li>
+                <li>Enum: Enumerator - based on integral types</li>
+            </ul>
+            
+            <p>The second type of variable is a reference type. Reference types hold reference to objects rather than the actual data of the object. Variables of this type can be declared using the keywords such as class, interface, delegate, and record. C# also provides the user with built in reference types of object, string and dynamic. Here is a look at how the built in reference types work with the example of the “easiest” of the reference types :
+            </p>
+
+            <code></code>
+
+            <p>You may notice there is no null type in C#. This lack of null, initially meant that C# did suffer from the $1 billion mistake but in C# 8.0 and beyond, this issue is fixed. In the 8.0 update of C#, the idea of nullable types, both for reference and value types, were introduced to the language. The syntax to have a nullable variable that uses nullable types would be one of the two below:
+            </p>
+
+            <code>referenceType? refName = null;
+            </code>
+            <code>valueType? varName = null;</code>
+
+            <p>With the use of ? after the type, the variable has the capability to be null with no issues from the system. If we were to set an type of variable to null this would result in major issues but thanks to C# 8.0, this $1 billion mistake is bypassed.</p>
+
+            <p>The last concept I would like to go over is the use of delegate, which is unique to C#. A delegate is a reference type but holds reference to a method rather than a variable. The delegate keyword should go in front of a method name to essentially encapsulate a method. Delegates can be used to identify which method should be called when an event takes place and can be useful for user interface aspects such as clicking virtual buttons on a screen.</p>
+
+            <code>public delegate bool isCold(int temperature);
+            </code>
+        </section>
+
+        <section class="main-section" id="Object_Oriented_Programming"> 
+            <header>Object Oriented Programming</header>
+
+            <p>Earlier in the chapters we discussed how the meaning of an object oriented language differs among individuals. One definition was that the language must follow three constraints: objects have a completely encapsulated state, objects be instances of classes and classes be grouped into inheritance hierarchies. Let us see how C# fits into this definition. For starters objects in C# have a hidden state that can be achieved using private fields using the private keyword. Public properties can be used to access these otherwise untouchable private states. Here is an example of the pair in tandem:
+            </p>
+            <code></code>
+
+            <p>Although the name and age fields are private, we can get and set them through the public properties. Once we create an instance of a Person, we can set the public properties to an appropriate value which in turn changes the values of the private, encapsulated, fields. If we try to access a private field from an instance of an object, we will get an error due to the private fields protection level. So it seems that C# has encapsulation but what about the other two requirements? </p>
+            <p>As we see in our example above, we do Person which is a class and we have an instance of a Person in birthdayBoy. So from the example above we can say in C# objects can be instances of classes but is it a must? Not entirely. </p>
+
+            <code></code>
+
+            <p>We can make an object by taking an  instance of the example above, but as indicated by the struct keyword, Point3D is not a class but a structure. So although objects can be instances of a  class in C# they are not required to be. Objects can be instances of another reference type besides classes, an object can be an instance of an Array. This case is less formal than the one above as it is only one line:
+            </p>
+
+            <code>string[] groceryList = new string[]{"chicken", "eggs", "bread"}; // groceryList is an object
+            </code>
+
+            <p>C# may not fully pass the second requirement but that does not mean it is not an object-oriented language, C# still reliant on oop concepts such as encapsulation, polymorphism, inheritance, and abstraction. Which brings us to the last requirement in our previously defined definition. Although classes in C# do not have to be, they can be grouped into inheritance hierarchies.We can see this through our Animal example from previous chapters:</p>
+
+            <code></code>
+
+            <p>C# still makes use of the abstract keyword which restricts Animal from being instantiated on its own. The Horse, Cow, and Sheep classes do not need a keyword to implement Animal, instead the : indicates each subclass is extending Animal. To override a method found in Animal, we must state public override to indicate the change that will occur between the super class and subclass. There is a clear hierarchy of inheritance here although it only goes down one generation with Animal being the parent of all three subclasses.</p>
+        </section>
+
+        <section class="main-section" id="Garbage_Collection"> 
+            <header>Garbage Collection</header>
+            <p>As previously mentioned, garbage collection in C# is a process shared with other languages in the .Net framework. Garbage collection occurs behind the scenes but developers can call for the GC, garbage collector, to allocate memory and release it when it is no longer useful. 
+            </p>
+
+            <code></code>
+
+            <p>It is important to understand how the .Net framework applies garbage collection so we will go over a brief overview. For starters GCs have roots which are points at which garbage collection will start and are typically local variables, static variables, references from threads and  references from the stack. Garbage or potential garbage goes through 3 phases: Marking, relocating, and compacting. In the marking phase all “alive” objects are marked and listed to ensure they will not be thrown out. Next comes relocating which updates the references of all objects that will be thrown out. Lastly in the compact phase, which moves objects to free memory that can be reused once garbage is thrown out. 
+            </p>
+
+            <p>A last key piece of .Net GCS is the idea of generations. There are 3 generations of garbage collection: Generation 0, Generation 1 and Generation 2. The youngest of the generations, generation 0 houses objects that do not have much “shelf life”. Generation 1 houses those objects that survive the garbage collection of Generation 0 and is a buffer between “short-lived” objects and “long-lived” objects. Generation 2 is where all long-lived objects live. An example of an object found here would be static objects or data that must be alive for the entire length of an application. If you would like to search more in depth on how garbage collection works Microsoft has provided the <a href="https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/">Fundamentals of garbage collection - .NET</a> through Microsoft Learn. </p>
+        </section>
+
+        <section class="main-section" id="Exception_Handling"> 
+            <header>Exception Handling</header>
+            <p>Another concept that relies on the .Net framework is found in C#’s exception handling. C# along with the other languages in the .Net framework rely on  partnerships of try-catch, try-final, and try-catch-final for exception handling. The catch blocks of each should have a throw statement that specifies what exception is being handled. Let us look at a try-catch-final structure for exception handling: </p>
+
+            <code></code>
+
+            <p>Although we can expect a certain error to arise, there may be cases in which a different error occurs. Luckily in the .Net framework the programmer is able to attempt to catch multiple errors using individual catch statements. In our example above, although we fully expect a formatException to occur, there is a likelihood that a different error can occur if we manipulate the number  variable in a different way. Having the Exception catch is useful for this unpredictable occurrence. 
+            </p>
+
+            <p>Besides try-catch and try-catch-final you can use the throw keyword to either throw an exception or to rethrow an exception. Let us take a look at both uses of the throw keyword.</p>
+
+            <code></code>
+
+            <p>In this example the throw in a separate method Divide which will output a special message with the DivideByZeroException. Once the proper exception is caught, the unique message we defined in our throw will be printed to the console to safely stop the program. Once an exception is caught, the program exits meaning anything after the caught exception will be disregarded. </p>
+
+            <p>To rethrow an exception you would simply need to add the throw keyword at the end of a catch block. The syntax of such use is below. In this case, rethrowing will allow the original state of the exception to be preserved and pass the call up to a higher-level catch in the stack. If there is no higher-level catch in the call stack, the program will just end. We will try to go over an example of such to simplify what we are saying. </p>
+            <code> 
+                catch (Exception)
+                {
+                    
+                    throw; // Rethrow the caught exception
+                }
+            </code>
+
+            <p>Imagine an exception is thrown and it tries to find a catch block to “take care” of it, but there is no catch block in the method where the exception happened so we “go up the ladder” to the next method to hopefully find a different catch block. If there is no higher level catch block, we have to go home empty handed and exit our code.</p>
+            <code></code>
+
+        </section>
+
+        <section class="main-section" id="Threads"> 
+            <header>Threads</header>
+            <p>For concurrency C# implements threads which perform tasks independently to one another. Let us say you and your two siblings are given a list of 9 chores by your parents. Your parents do not put any restriction on how the chores get done as long as each task is performed. Of course each chore will not take the same amount of time to perform. So, you and your siblings decide to each take 3 chores and start at the same time. This is how threads in c# would work with each sibling representing a thread and each chore representing a task. Although you and your siblings are working together, your chores do not interfere or need to be put on pause while your siblings are doing their chores. 
+            </p>
+
+            <code></code>
+
+            <p>The above is a very simplified way of expressing the metaphor previously defined. To use threads in C# one must import System.Threading before any code is run. You have to explicitly state what method you want to be performed by the thread in the new ThreadStart parameter of a new Thread. This explicit pass of a method is called a delegate as it entrusts the thread with a certain task.</p>
+
+            <p>There are only two types of threads in this language : foreground threads and background threads. A foreground thread would prevent the application from ending until all foreground threads have completed their tasks while a background thread does not prevent the application from terminating. Both types of threads can be called using Thread.Start() like the example above but a background thread would have the IsBackground property set to true. The above example is a foreground thread but to make the thread a background thread we need to add a single line after the thread is started. 
+            </p>
+            <code>thread.IsBackground = true;</code>
+
+            <p>We have previously seen Java’s platform threads which are threads directly managed by the OS are compilations of virtual threads. Due to C#s use of the .Net framework, all threads are os threads and therefore the same as platform threads in Java. This means that C# does not have any virtual threads but instead relies on async and await keywords instead of threads. </p>
+        </section>
+
+        <section class="main-section" id="Generics"> 
+            <header>Generics</header>
+            <p>To end our tour, we will end at the beginning in a way. Earlier in the chapter I mentioned how there was a key difference between two fairly similar languages that is found in its use of Generics. In Java’s use of Generics, type erasure is a key concept to ensure type safety. The overall concept is that at runtime, type parameters are thought of as their “raw” type rather than the type parameter defined. C# does not make use of this type erasure quality</p>
+            <p>Instead, C# uses reification. From a nontechnical definition, reification means “the act of treating something abstract as if it were a concrete, physical thing” which is not off from the way it is used in C#. Instead of erasing the type in the type parameter, C# makes a generic of that type parameter. The phrasing of this is odd so let's look at an example for a better idea:
+            </p>
+
+            <code></code>
+
+            <p>In a Java equivalent instead of the type of numbers being treated as List<int>, the list numbers would be treated as List<Object> at runtime. Overall the type information is retained even to be seen at runtime. Reification is useful to support type safety at runtime. With the system knowing the type at runtime, it can check if the types are compatible or will be error inducing because they are mismatched. </p>
+        </section>
+        
+    </main>
+</body>
+</html>
